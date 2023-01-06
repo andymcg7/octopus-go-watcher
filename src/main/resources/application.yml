@@ -1,0 +1,27 @@
+management:
+  endpoints:
+    enabled-by-default: false
+  endpoint:
+    health:
+      enabled: true
+  health:
+    defaults:
+      enabled: true
+go-watcher:
+  api-endpoint: https://api.octopus.energy/v1
+  cache-lifespan: 86400000
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+go-watcher:
+  api-endpoint: http://localhost:9090/api/v1
+  cache-lifespan: 2000
+  meter-mpan: 123456789
+  meter-serial-number: abcdef123456
+  api-key: 998877665544332211
+server:
+  port: 9090
